@@ -84,7 +84,7 @@ NUXT_PUBLIC_SUPABASE_URL=supabase_project_url
 NUXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=supabase_publishable_key
 ```
 
-In `nuxt.config.ts`, map these public env vars into runtime config keys used by the examples below:
+In `nuxt.config.ts`, map these public environment variables into runtime config keys used by the examples below:
 
 ```ts nuxt.config.ts
 export default defineNuxtConfig({
@@ -512,7 +512,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   // Use `supabase` here for server-side work, e.g. await supabase.auth.getUser()
 
-  // Return the env vars so the browser can create its own client.
+  // Return the environment variables so the browser can create its own client.
   return json(
     {
       env: {
@@ -549,7 +549,7 @@ export async function action({ request }: ActionFunctionArgs) {
   return json(null, { headers: responseHeaders })
 }
 
-// Browser: create a client using the env vars returned by the loader.
+// Browser: create a client using the environment variables returned by the loader.
 export default function Index() {
   const { env } = useLoaderData<typeof loader>()
 
@@ -640,7 +640,7 @@ You can now use any Supabase features from your client or server code!
 
 <TabPanel id="react-router" label="React Router">
 
-In React Router, a route module (`_index.tsx`) can export a `loader`, an `action`, and a default component. Create a server client inside the `loader` and `action`, and a browser client inside the component, passing the env vars through the `loader`.
+In React Router, a route module (`_index.tsx`) can export a `loader`, an `action`, and a default component. Create a server client inside the `loader` and `action`, and a browser client inside the component, passing the environment variables through the `loader`.
 
 ```ts _index.tsx
 import { data, type ActionFunctionArgs, type LoaderFunctionArgs } from 'react-router'
@@ -676,7 +676,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   // Use `supabase` here for server-side work, e.g. await supabase.auth.getUser()
 
-  // Return the env vars so the browser can create its own client.
+  // Return the environment variables so the browser can create its own client.
   return data(
     {
       env: {
@@ -713,7 +713,7 @@ export async function action({ request }: ActionFunctionArgs) {
   return data(null, { headers: responseHeaders })
 }
 
-// Browser: create a client using the env vars returned by the loader.
+// Browser: create a client using the environment variables returned by the loader.
 export default function Index() {
   const { env } = useLoaderData<typeof loader>()
 
